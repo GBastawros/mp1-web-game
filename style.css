@@ -2,7 +2,7 @@ div {
     border: 1px solid red;
 }
 
-/*.container {
-    display:flex
+*.container {
+    display:flex;
+    background-color:rgb(10,108,108)
 }
-*/

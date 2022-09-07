@@ -1,32 +1,37 @@
 // Create alphabet pad //
 function alphabetpad() {
     let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-        let pad = document.createElement('ul');
+        
         for(let i = 0; i < alphabet.length; i++){
-            let letterButtons = document.createElement('li');
+            letterButtons = document.createElement('button');
             letterButtons.innerHTML = alphabet[i];
-            pad.appendChild(letterButtons);
-            document.getElementById('alphabet').appendChild(pad);
+            document.getElementById('alphabet').appendChild(letterButtons);
         }
 }
 alphabetpad()
 
-// create categories pad//
-var cars =['chervrolet', 'ford', 'mercedes', 'subaru','toyota']
-var cities =['madison', 'chicago','cairo','manchester']
-var categoriesPad = [cars, cities]
-    function catSelect (){
-        for(let i = 0 ; i< categoriesPad.length; i++){
-        let category = document.createElement("button")
-            category.textContent = categoriesPad[i]
-            category.addEventListener=('click' , startPlay)
-            document.getElementById('categotries').appendChild(category)
-        }
-    }
-catSelect()
+// Start Play by selecting a category to create a random word//
+const cars =['chervrolet', 'ford', 'mercedes', 'subaru','toyota'];
+const cities =['madison', 'chicago','cairo','manchester'];
+const fruits =['banana','mango','apple']
+const categoriesPad = ["cars", "cities","fruits"];
 
-//create a random word from selected category//
-function startPlay(){
-    let word = categoriesPad[i][Math.floor(Math.random() * categoriesPad[i].length)];
+function startPlay (){
+    let word;
+    for(let i = 0 ; i< categoriesPad.length; i++){
+        let categoryBtn = document.createElement("button")
+        categoryBtn.innerHTML = categoriesPad[i]
+        categoryBtn.addEventListener('click' , function(){
+            if(categoryBtn.innerHTML === "cars"){
+                word = cars[Math.floor(Math.random()*cars.length)]
+            }else if(categoryBtn.innerHTML === "cities"){
+                word = cities[Math.floor(Math.random()*cities.length)]
+            }else if(categoryBtn.innerHTML === "fruits"){
+                 word = fruits[Math.floor(Math.random()*fruits.length)]
+            }
+        })
+        document.getElementById('categotries').appendChild(categoryBtn)
+    }
+    return word
 }
 startPlay()
