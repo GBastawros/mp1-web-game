@@ -1,14 +1,37 @@
+body {
+    font-family: serif sans-serif;
+}
 div {
     border: 1px solid red;
 }
 
 .container {
     display:flex;
-    background-color:rgb(10,108,108)
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* background-color:rgb(10,108,108) */
 }
 #hangman {
-    border: 1px solid yellow;
-    background-color: yellow;
-    width: 300px;
+    border: 1px solid red;
+    /* background-color: yellow; */
+    width: 30%;
+    height: 600px;
+}
+#categotries {
+    width: 30%;
+    height: 600px;
+}
+#playPad {
+    width: 30%;
+    height: 600px;
+}
+#play {
+    width:100%;
+    height: 300px;
+}
+#alphabet {
+    width:100%;
     height: 300px;
 }

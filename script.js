@@ -1,4 +1,5 @@
 // Create alphabet pad //
+
 function alphabetpad() {
     let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -6,7 +7,6 @@ function alphabetpad() {
     for (let i = 0; i < alphabet.length; i++) {
         letterButtons = document.createElement('button');
         letterButtons.innerHTML = alphabet[i];
-        letterButtons.onclick = play()
         document.getElementById('alphabet').appendChild(letterButtons);
     }
 }
@@ -31,18 +31,21 @@ function startPlay() {
             } else if (categoryBtn.innerHTML === "fruits") {
                 word = fruits[Math.floor(Math.random() * fruits.length)]
             }
+            //console.log(word)
             let dashes = wordToPlay(word)
-
             document.getElementById('playWord').innerHTML = dashes
-
         })
         document.getElementById('categotries').appendChild(categoryBtn)
 
     }
     return word;
 }
+startPlay()
+
 //Convert the rundamly generated word to dashes//
+let wordArray;
 function wordToPlay(word) {
+    wordArray = word.split('')
     let secretArray = [];
     for (let j = 0; j < word.length; j++) {
         secretArray.push('-')
@@ -54,87 +57,91 @@ function wordToPlay(word) {
 function baseBar() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(10, 290);
-    ctx.lineTo(20, 290);
-    ctx.lineWidth = 10;
+    ctx.moveTo(10, 140);
+    ctx.lineTo(100, 140);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function vertBar() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(15, 290);
-    ctx.lineTo(15, 190);
-    ctx.lineWidth = 10;
+    ctx.moveTo(15, 140);
+    ctx.lineTo(15, 10);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function horBar() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(15, 190);
-    ctx.lineTo(40, 190);
-    ctx.lineWidth = 10;
+    ctx.moveTo(13, 10);
+    ctx.lineTo(150, 10);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function rod() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 190);
-    ctx.lineTo(40, 185);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 10);
+    ctx.lineTo(148, 30);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function head() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.begiPath();
-    ctx.arc(40, 175, 10, 0, 2 * Math.PI);
-    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.arc(148,45,15,0,2 * Math.PI);
     ctx.stroke();
 }
 function body() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 165);
-    ctx.lineTo(40, 135);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 60);
+    ctx.lineTo(148, 100);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function leftArm() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 160);
-    ctx.lineTo(35, 155);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 68);
+    ctx.lineTo(135, 88);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function rightArm() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 160);
-    ctx.lineTo(45, 155);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 68);
+    ctx.lineTo(161, 88);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function leftLeg() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 135);
-    ctx.lineTo(35, 130);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 100);
+    ctx.lineTo(135, 118);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
 function rightLeg() {
     const element = document.getElementById('hangman');
     ctx = element.getContext("2d");
-    ctx.moveTo(40, 135);
-    ctx.lineTo(45, 130);
-    ctx.lineWidth = 10;
+    ctx.moveTo(148, 100);
+    ctx.lineTo(161, 118);
+    ctx.lineWidth = 3;
     ctx.stroke();
 }
-var hangmanArray = [baseBar, vertBar, horBar, rod, head, body, leftArm, rightArm, leftLeg, rightLeg]
-
-function play() {
-
-}
-startPlay()
+const hangmanArray = [baseBar, vertBar, horBar, rod, head, body, leftArm, rightArm, leftLeg, rightLeg];
+// hangman[0]()
+// hangman[1]()
+// hangman[2]()
+// hangman[3]()
+// hangman[4]()
+// hangman[5]()
+// hangman[6]()
+// hangman[7]()
+// hangman[8]()
+// hangman[9]()
 
