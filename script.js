@@ -1,92 +1,67 @@
 // Create alphabet pad //
 var letters = document.getElementById('alphabet');
-function alphabetpad() {
-    let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    
-    for (let i = 0; i < alphabet.length; i++) {
-        let letterButtons = document.createElement('button');
-        letterButtons.innerHTML = alphabet[i];
-        letterButtons.addEventListener('click', function () {
-            for (let i = 0; i < wordArray.length; i++) {
-                if (wordArray[i] === letterButtons.innerHTML) {
-                    console.log(dashes)
-                   
-                //     let x = document.getElementById('playWord').innerHTML
-                //     let y = x.split('') 
-                //     console.log(y)
-                //     y.splice(y[i],1,wordArray[i]);
-                //     // y[i] = wordArray[i]
-                // //    x[i] = letterButtons.innerHTML
-                   console.log(i)
-                   console.log (letterButtons.innerHTML)
-                }
-            }
-        })
+let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-        letters.appendChild(letterButtons);
-    }
+for (let i = 0; i < alphabet.length; i++) {
+    let letterButtons = document.createElement('button');
+    letterButtons.innerHTML = alphabet[i];
+    letterButtons.addEventListener('click', function () {
+            play(letterButtons)
+        })
+    letters.appendChild(letterButtons);
 }
-alphabetpad()
+
+function play(letterButtons) {
+    if(wordArray.indexOf(letterButtons.innerHTML) !== -1){
+        for (let i = 0; i < wordArray.length; i++) {
+            if (wordArray[i] === letterButtons.innerHTML) {
+                dashes[i] = letterButtons.innerHTML
+                playWordP.innerHTML = dashes.join(' ')
+                console.log(dashes)
+                console.log(i)
+                console.log(letterButtons.innerHTML)
+            }
+        }
+    }
+        
+}
+
+
 // Start Play by selecting a category to create a random word//
 const cars = ['chevrolet', 'ford', 'mercedes', 'subaru', 'toyota'];
 const cities = ['madison', 'chicago', 'cairo', 'manchester'];
 const fruits = ['banana', 'mango', 'apple']
 const categoriesPad = ["cars", "cities", "fruits"];
-// const categories = [cars, cities, fruits];
 
+// const categories = [cars, cities, fruits];
 let word;
+let dashes;
 let categoriesDiv = document.getElementById('categotries')
 let playWordP = document.getElementById('playWord')
-    for (let i = 0; i < categoriesPad.length; i++) {
-        let categoryBtn = document.createElement("button")
-        categoryBtn.innerHTML = categoriesPad[i]
-        categoryBtn.addEventListener('click', function () {
-            if (categoryBtn.innerHTML === "cars") {
-                word = cars[Math.floor(Math.random() * cars.length)]
-            } else if (categoryBtn.innerHTML === "cities") {
-                word = cities[Math.floor(Math.random() * cities.length)]
-            } else if (categoryBtn.innerHTML === "fruits") {
-                word = fruits[Math.floor(Math.random() * fruits.length)]
-            }
-           console.log(word)
-             let dashes = wordToPlay(word)
-            playWordP.innerHTML = dashes.join('')
-        })
-        categoriesDiv.appendChild(categoryBtn)
+for (let i = 0; i < categoriesPad.length; i++) {
+    let categoryBtn = document.createElement("button")
+    categoryBtn.innerHTML = categoriesPad[i]
+    categoryBtn.addEventListener('click', function () {
+        wordGenerator(categoryBtn)
+    })
+    categoriesDiv.appendChild(categoryBtn)
+}
+function wordGenerator(categoryBtn) {
+    if (categoryBtn.innerHTML == "cars") {
+        word = cars[Math.floor(Math.random() * cars.length)]
+    } else if (categoryBtn.innerHTML === "cities") {
+        word = cities[Math.floor(Math.random() * cities.length)]
+    } else if (categoryBtn.innerHTML === "fruits") {
+        word = fruits[Math.floor(Math.random() * fruits.length)]
     }
-
-
-
-
-// function startPlay() {
-//     let word;
-//     for (let i = 0; i < categoriesPad.length; i++) {
-//         let categoryBtn = document.createElement("button")
-//         categoryBtn.innerHTML = categoriesPad[i]
-//         categoryBtn.addEventListener('click', function () {
-//             if (categoryBtn.innerHTML === "cars") {
-//                 word = cars[Math.floor(Math.random() * cars.length)]
-//             } else if (categoryBtn.innerHTML === "cities") {
-//                 word = cities[Math.floor(Math.random() * cities.length)]
-//             } else if (categoryBtn.innerHTML === "fruits") {
-//                 word = fruits[Math.floor(Math.random() * fruits.length)]
-//             }
-//             console.log(word)
-//             let dashes = wordToPlay(word)
-//             document.getElementById('playWord').innerHTML = dashes.join('')
-//         })
-//         document.getElementById('categotries').appendChild(categoryBtn)
-
-//     }
-//     return word;
-// }
-// startPlay()
-
+    console.log(word)
+    dashes = wordToPlay(word)
+    playWordP.innerHTML = dashes.join('')
+}
 
 //Convert the rundamly generated word to dashes//
 let wordArray = [];
-
 function wordToPlay(word) {
     wordArray = word.split('')
     let secretArray = [];
