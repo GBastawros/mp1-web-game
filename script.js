@@ -71,17 +71,18 @@ const categories = [cars, fruits, vegetables, capitalCitieseEur, capitalCitiesAs
     capitalCitiesAmer, capitalCitiesAust, capitalCitiesAfr, colors];
 let word;
 let dashes;
-let categoriesDiv = document.getElementById('categotries')
+let categoriesDiv = document.getElementById('categoryPad')
 let playWordP = document.getElementById('playWord')
 for (let i = 0; i < categoriesPad.length; i++) {
     let categoryBtn = document.createElement("button")
     categoryBtn.innerHTML = categoriesPad[i]
+    categoryBtn.className = "category"
     categoryBtn.addEventListener('click', function () {
         document.getElementById('alphabet').style.visibility = "visible";
         document.getElementById('winner').innerHTML = ''
         wordGenerator(categoryBtn)
     })
-    categoriesDiv.appendChild(categoryBtn)
+    categoriesDiv.append(categoryBtn)
 }
 
 function wordGenerator(categoryBtn) {

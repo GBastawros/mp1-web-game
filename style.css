@@ -1,1 +1,93 @@
+header {
+    font-family: 'Shrikhand', cursive;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+h1 {
+    background-color: cadetblue;
+}
 
+p, h2 
+{
+    font-family: 'Yatra One', cursive;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    margin: 25px;
+}
+
+#playWord {
+    font-size: x-large;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display:flex;
+    height: 500px;
+    background-color: cadetblue;
+    
+}
+.column{
+    float: left;
+    width: 33.33%;
+}
+
+#play {
+    margin: 0 auto;
+    width: 100%;
+    height: 50%;
+}
+
+#alphabet{
+    margin: 0 auto;
+    width: 60%;
+    height: 50%;
+}
+
+.alpha {
+    width: 40px;
+    height: 40px;
+    background-color: initial;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin: 2px;
+    padding: 0px;
+    display:inline-block;
+}
+
+.alpha:hover {
+    transition: 0.5s;
+    background: white;
+    border: solid 1px white;
+    
+}
+
+#categories {
+    margin: auto;
+    background-color: rgb(96, 157, 159, 0);
+
+}
+#categoryPad {
+    margin: auto;
+
+}
+.category {
+    font-size: larger;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    
+    
+    
+}
+#canvas {
+    margin: 150px auto;
+}
+
+#playPad {
+    margin: auto;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
