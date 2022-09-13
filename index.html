@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
- </head>
- <body>
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Hangman</title>
+   <link rel="stylesheet" href="style.css" type="text/css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+</head>
+
+<body>
 
    <!--main contains: game header, game body-->
-   
+
    <header>
       <h1>Hangman game</h1>
    </header>
@@ -18,19 +23,24 @@
       <!-- Categories Container -->
       <!-- to be updated next version -->
       <div id="categotries">
-         <h2>Choose a Category</h2>
+         <h2>Category</h2>
+         <p>Choose a category to start the fun</p>
       </div>
-         <!-- play area container -->
+      <!-- play area container -->
       <div id="playPad">
          <div id="play">
             <p id="playWord"></p>
+            <p id="winner"></p>
          </div>
          <!-- Alphabet buttons container -->
          <div id="alphabet"></div>
       </div>
       <!-- drawing hangman -->
-      <canvas id="hangman"></canvas>
+      <div id="canvas">
+         <canvas id="hangman"></canvas>
+      </div>
    </main>
    <script src="script.js"></script>
- </body>
+</body>
+
 </html>
