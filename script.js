@@ -12,6 +12,11 @@ for (let i = 0; i < alphabet.length; i++) {
     })
     letters.appendChild(letterButtons);
 }
+
+/*
+click any letter, if true => will replace all the corresponding dashes, 
+else => hangman drawing will start with each false attempt till either find he correct letter or end the game
+*/
 let errCounter = 0
 function play(letterButtons) {
 
@@ -31,19 +36,18 @@ function play(letterButtons) {
     else {
         hangmanArray[errCounter]();
         errCounter += 1
-        console.log(errCounter)
     }
     if (errCounter === hangmanArray.length) {
         playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play a gain"
         document.getElementById('alphabet').style.visibility = "hidden"
         errCounter = 0
-        console.log(errCounter)
-
     }
 }
 
 
-// Start Play by selecting a category to create a random word//
+/*
+categories array, individual array for each category, buttons are dynamecaly created
+*/
 const cars = ['CHEVROLET', 'FORD', 'MERCEDES-BENZ', 'SUBARU', 'TOYOTA', 'AUDI', 'LEXUS', 'TESLA', 'HYUNDAI',
     'CADILLAC', 'PONTIAC', 'ROLLS-ROYCE', 'LAMBORGHINI'];
 const fruits = ['MANGO', 'APPLE', 'ORANGE', 'DRANGON-FRUIT', 'GRAPES', 'MANDARIN-ORANGE', 'QATERMELON', 'POMEGRANATE',
@@ -69,8 +73,7 @@ const categoriesPad = ["Cars", "fruits", "vegetables", "Capital Cities - Europe"
 
 const categories = [cars, fruits, vegetables, capitalCitieseEur, capitalCitiesAsia,
     capitalCitiesAmer, capitalCitiesAust, capitalCitiesAfr, colors];
-let word;
-let dashes;
+
 let categoriesDiv = document.getElementById('categoryPad')
 let playWordP = document.getElementById('playWord')
 for (let i = 0; i < categoriesPad.length; i++) {
@@ -84,21 +87,25 @@ for (let i = 0; i < categoriesPad.length; i++) {
     })
     categoriesDiv.append(categoryBtn)
 }
-
+/*
+reset the game, generate rundom word from the  selected category 
+*/
+let word;
+let dashes;
 function wordGenerator(categoryBtn) {
     ctx.clearRect(0, 0, 600, 600);
     canvas();
-    errCounter =0
-    for (let i = 0; i < categoriesPad.length; i++)
+    errCounter = 0
+    for (let i = 0; i < categoriesPad.length; i++) {
         if (categoryBtn.innerHTML === categoriesPad[i]) {
             word = categories[i][Math.floor(Math.random() * categories[i].length)]
         }
-    console.log(word)
-    dashes = wordToPlay(word)
-    playWordP.innerHTML = dashes.join(" ")
+        dashes = wordToPlay(word)
+        playWordP.innerHTML = dashes.join(" ")
+    }
 }
 
-//Convert the rundamly generated word to dashes//
+//Convert the rundomly generated word to dashes//
 let wordArray = [];
 function wordToPlay(word) {
     wordArray = word.split('')
@@ -118,11 +125,11 @@ function wordToPlay(word) {
 var theHangman = document.getElementById('hangman');
 var ctx = theHangman.getContext('2d')
 
-function canvas(){
+function canvas() {
     theHangman = document.getElementById('hangman');
     ctx = theHangman.getContext('2d');
     ctx.beginPath();
-    ctx.lineWidth =3;
+    ctx.lineWidth = 3;
 }
 function baseBar() {
     theHangman = document.getElementById('hangman');
@@ -195,13 +202,3 @@ function rightLeg() {
     ctx.stroke();
 }
 const hangmanArray = [baseBar, vertBar, horBar, rod, head, body, leftArm, rightArm, leftLeg, rightLeg];
-// hangmanArray[0]()
-// hangmanArray[1]()
-// hangmanArray[2]()
-// hangmanArray[3]()
-// hangmanArray[4]()
-// hangmanArray[5]()
-// hangmanArray[6]()
-// hangmanArray[7]()
-// hangmanArray[8]()
-// hangmanArray[9]()
