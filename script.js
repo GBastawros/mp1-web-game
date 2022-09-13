@@ -12,7 +12,10 @@ for (let i = 0; i < alphabet.length; i++) {
     })
     letters.appendChild(letterButtons);
 }
-
+var soundWinner = document.getElementById('winner')
+var soundClick = document.getElementById('click')
+var soundGameOver = document.getElementById('gameover')
+var soundIncorrect = document.getElementById('incorrect')
 /*
 click any letter, if true => will replace all the corresponding dashes, 
 else => hangman drawing will start with each false attempt till either find he correct letter or end the game
@@ -21,6 +24,7 @@ let errCounter = 0
 function play(letterButtons) {
 
     if (wordArray.indexOf(letterButtons.innerHTML) !== -1) {
+        soundClick.play()
         for (let i = 0; i < wordArray.length; i++) {
             if (wordArray[i] === letterButtons.innerHTML) {
                 dashes[i] = letterButtons.innerHTML
@@ -29,17 +33,21 @@ function play(letterButtons) {
         }
         if (playWordP.innerHTML.indexOf("_") === -1) {
             let message = document.getElementById('winner').innerHTML = "YOU WON<br>CONGRATULATIONS<br>Choose a category to play a gain";
-            document.getElementById('alphabet').style.visibility = "hidden"
+            document.getElementById('alphabet').style.visibility = "hidden"           
+            soundWinner.play()
 
         }
     }
     else {
         hangmanArray[errCounter]();
-        errCounter += 1
+        errCounter += 1;
+        soundIncorrect.play();
     }
     if (errCounter === hangmanArray.length) {
         playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play a gain"
         document.getElementById('alphabet').style.visibility = "hidden"
+        soundIncorrect.pause()
+        soundGameOver.play()
         errCounter = 0
     }
 }
@@ -83,6 +91,7 @@ for (let i = 0; i < categoriesPad.length; i++) {
     categoryBtn.addEventListener('click', function () {
         document.getElementById('alphabet').style.visibility = "visible";
         document.getElementById('winner').innerHTML = ''
+        soundClick.play()
         wordGenerator(categoryBtn)
     })
     categoriesDiv.append(categoryBtn)
@@ -95,11 +104,14 @@ let dashes;
 function wordGenerator(categoryBtn) {
     ctx.clearRect(0, 0, 600, 600);
     canvas();
-    errCounter = 0
+    errCounter = 0;
+    soundWinner.pause();
+    soundGameOver.pause();
     for (let i = 0; i < categoriesPad.length; i++) {
         if (categoryBtn.innerHTML === categoriesPad[i]) {
             word = categories[i][Math.floor(Math.random() * categories[i].length)]
         }
+
         dashes = wordToPlay(word)
         playWordP.innerHTML = dashes.join(" ")
     }
