@@ -16,9 +16,9 @@ window.onload = function () {
         letterButtons.className = "alpha";
         letterButtons.disabled = false;
         letterButtons.addEventListener("click", function () {
-            play(letterButtons)
-            letterButtons.disabled = true;
-        })
+                play(letterButtons);
+                letterButtons.disabled = true;
+            })
         letters.appendChild(letterButtons);
     }
     var soundWinner = document.getElementById("winner");
@@ -51,7 +51,7 @@ window.onload = function () {
             soundIncorrect.play();
         }
         if (errCounter === hangmanArray.length) {
-            playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play again";
+            playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play again <br> The answer is "+ word;
             document.getElementById("alphabet").style.visibility = "hidden";
             soundIncorrect.pause();
             soundGameOver.play();
