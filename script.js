@@ -40,7 +40,7 @@ window.onload = function () {
                 }
             }
             if (playWordP.innerHTML.indexOf("_") === -1) {
-                let message = document.getElementById("win").innerHTML = "YOU WON<br>CONGRATULATIONS<br>Choose a category to play a gain";
+                let message = document.getElementById("win").innerHTML = "YOU WON<br>CONGRATULATIONS<br>Choose a category to play again";
                 document.getElementById("alphabet").style.visibility = "hidden";
                 soundWinner.play();
             }
@@ -51,7 +51,7 @@ window.onload = function () {
             soundIncorrect.play();
         }
         if (errCounter === hangmanArray.length) {
-            playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play a gain";
+            playWordP.innerHTML = "GAME OVER!!<br> Choose a category to play again";
             document.getElementById("alphabet").style.visibility = "hidden";
             soundIncorrect.pause();
             soundGameOver.play();
