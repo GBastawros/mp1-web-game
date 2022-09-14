@@ -1,3 +1,7 @@
+/* div{
+    border: 1px solid red;
+} */
+
 header {
     font-family: 'Shrikhand', cursive;
     font-size: 20px;
@@ -62,6 +66,12 @@ p, h2
     transition: 0.5s;
     background: white;
     border: solid 1px white;
+}
+
+.alpha:disabled {
+    background-color: gray;
+    border-color: gray;
+    pointer-events: none;
 }
 
 #categories {
