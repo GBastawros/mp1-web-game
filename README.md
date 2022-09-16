@@ -11,11 +11,11 @@
      B- The player faied to guess all or some letters and the 10 trials are consumed (the hangmann is fully drawn). the player loses.
   Note: for the words that are of more that one part (example New York) a dash will replace the white space
  
- ## Sources Of Some Categories:
+ # Sources Of Some Categories:
     https://www.worlddata.info/capital-cities.php
     https://www.k12.wa.us/sites/default/files/public/childnutrition/programs/ffvp/pubdocs/vegetablesa-z.pdf
     https://www.w3.org/wiki/CSS/Properties/color/keywords
-## Whats Next
+# Whats Next
    1- Add more categories
    2- Add more words in each category
    3- Add a hint button to help the plyer to figure out what the word is
@@ -25,3 +25,5 @@
    7- Add some statical features such as:
       A- count how many time the player played the gaim
       B- the ration/count of success and failure
+# Note:
+  Sometimes SFX generate errors that does not affect the user experience. debugging to be considered next relase.
